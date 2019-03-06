@@ -38,16 +38,17 @@ module.exports = function(context) {
 		);
 	});
 
-	hooks.addContent(
-		'SiteInfoDatabase_TableList_TableListRow[Connect]:Before',
-		() => {
-			return (
-				<div>
-					<p>Just checking</p>
-				</div>
-			);
-		}
-	);
+	// Just a test on those hooks
+	// hooks.addContent(
+	// 	'SiteInfoDatabase_TableList_TableListRow[Connect]:Before',
+	// 	() => {
+	// 		return (
+	// 			<div>
+	// 				<p>Just checking</p>
+	// 			</div>
+	// 		);
+	// 	}
+	// );
 
 	// Development Helpers
 	remote.getCurrentWindow().openDevTools();

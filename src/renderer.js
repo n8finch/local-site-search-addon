@@ -2,14 +2,14 @@
 
 const path = require('path');
 
-module.exports = function(context) {
+module.exports = function (context) {
 	const hooks = context.hooks;
 	const React = context.React;
 	const remote = context.electron.remote;
 
-	hooks.addFilter('siteInfoMoreMenu', function(menu, site) {
+	hooks.addFilter('siteInfoMoreMenu', function (menu, site) {
 		menu.push({
-			label: 'Plugins',
+			label: 'lugins',
 			enabled: !this.context.router.isActive(
 				`/site-info/${site.id}/my-component`
 			),
@@ -39,16 +39,16 @@ module.exports = function(context) {
 	});
 
 	// Just a test on those hooks
-	// hooks.addContent(
-	// 	'SiteInfoDatabase_TableList_TableListRow[Connect]:Before',
-	// 	() => {
-	// 		return (
-	// 			<div>
-	// 				<p>Just checking</p>
-	// 			</div>
-	// 		);
-	// 	}
-	// );
+	hooks.addContent(
+		'FlywheelConnectSites_TabNav',
+		() => {
+			return (
+				<div>
+					<input id="search-connect-sites" name="" placeholder="Search sites..." />
+				</div>
+			);
+		}
+	);
 
 	// Development Helpers
 	remote.getCurrentWindow().openDevTools();

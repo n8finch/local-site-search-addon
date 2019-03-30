@@ -60,8 +60,9 @@ export default function (context) {
 	 */
 
 	hooks.addFilter('FlywheelConnectSites_availableSites', function (sites) {
-		if (this.state.filteredSites) {
-			return this.state.filteredSites;
+
+		if (this.state.availableSites) {
+			return this.state.availableSites;
 		}
 
 		return sites;
@@ -71,19 +72,22 @@ export default function (context) {
 	hooks.addContent('FlywheelConnectSites_TabNav', function () {
 		const onChange = (event) => {
 			const siteSearch = event.target.value;
-			let filteredSites = null;
+			let availableSites = null;
 
 			if (siteSearch) {
-				const fuse = new Fuse(Object.values(this.props.sites), {
+				const fuse = new Fuse(Object.values(this.state.availableSites), {
 					keys: ['name'],
 				});
 
-				filteredSites = fuse.search(siteSearch);
+				availableSites = fuse.search(siteSearch);
 			}
+
+			console.log(siteSearch);
+
 
 			this.setState({
 				siteSearch,
-				filteredSites,
+				availableSites,
 			});
 		};
 
@@ -97,7 +101,7 @@ export default function (context) {
 
 
 	hooks.addContent('FlywheelConnectSites_FlywheelSitesList:Before', function () {
-		if (!this.state.siteSearch || (this.state.siteSearch && this.state.filteredSites.length)) {
+		if (!this.state.siteSearch || (this.state.siteSearch && this.state.availableSites.length)) {
 			return;
 		}
 

@@ -74,25 +74,56 @@ export default function (context) {
 		return sites;
 	});
 
+	hooks.addFilter('FlywheelConnectSites_connectedSites', function (sites) {
+
+		// Set this as props the first time so we can have a prop to work with...
+		if (!this.props.connectedSites) {
+			this.props.connectedSites = sites;
+		}
+
+		if (this.state.connectedSites) {
+			return this.state.connectedSites;
+		}
+
+		return sites;
+	});
+
 
 	hooks.addContent('FlywheelConnectSites_TabNav:Before', function () {
 		const onChange = (event) => {
 			const siteSearch = event.target.value;
 			let availableSites = null;
+			let connectedSites = null;
+
 
 			if (siteSearch) {
-				const fuse = new Fuse(Object.values(this.props.availableSites), {
-					keys: ['name'],
-				});
 
-				availableSites = fuse.search(siteSearch);
+				if (this.props.availableSites) {
+					const fuseAvailableSites = new Fuse(Object.values(this.props.availableSites), {
+						keys: ['name'],
+					});
+					availableSites = fuseAvailableSites.search(siteSearch);
+
+					this.setState({
+						siteSearch,
+						availableSites,
+					});
+				}
+
+
+				if (this.props.connectedSites) {
+					const fuseConnectedSites = new Fuse(Object.values(this.props.connectedSites), {
+						keys: ['name'],
+					});
+					connectedSites = fuseConnectedSites.search(siteSearch);
+
+					this.setState({
+						siteSearch,
+						connectedSites,
+					});
+				}
+
 			}
-
-			this.setState({
-				siteSearch,
-				availableSites,
-			});
-
 
 		};
 

@@ -1,5 +1,6 @@
-# Connect to Flywheel Site Search for Local
+# Local and Connect to Flywheel Site Search for Local by Flywheel
 
+Adds a live fuzzy search to Local and Connect to Flywheel sites.
 
 ### Filters:
 
@@ -19,5 +20,8 @@
 - SitesSidebar_SitesSidebarSites
 
 ### Resources
+https://build.localbyflywheel.com/project/building/example-add-ons
 https://github.com/getflywheel/local-components
+https://reactjs.org/docs/components-and-props.html
+https://www.robinwieruch.de/react-pass-props-to-component/
 

@@ -5,12 +5,6 @@ export default function (context) {
 
 	const hooks = context.hooks;
 	const React = context.React;
-	const remote = context.electron.remote;
-
-
-	/**********************************************************
-	 * THE OG STUFF
-	 */
 
 	hooks.addFilter('SitesSidebar_sites', function (sites) {
 		if (this.state.filteredSites) {
@@ -39,11 +33,11 @@ export default function (context) {
 			});
 		};
 
-		return <input
+		return <InputSearch
 			key="search"
-			placeholder="Search for a site"
-			value={this.state.siteSearch || ''}
 			onChange={onChange}
+			placeholder="Search sites"
+			value={this.state.siteSearch || ''}
 		/>;
 	});
 
@@ -95,7 +89,6 @@ export default function (context) {
 			let availableSites = null;
 			let connectedSites = null;
 
-
 			if (siteSearch) {
 
 				if (this.props.availableSites) {
@@ -110,7 +103,6 @@ export default function (context) {
 					});
 				}
 
-
 				if (this.props.connectedSites) {
 					const fuseConnectedSites = new Fuse(Object.values(this.props.connectedSites), {
 						keys: ['name'],
@@ -122,17 +114,9 @@ export default function (context) {
 						connectedSites,
 					});
 				}
-
 			}
 
 		};
-
-		// return <input
-		// 	key="search"
-		// 	placeholder="Search for a site"
-		// 	value={this.state.siteSearch || ''}
-		// 	onChange={onChange}
-		// />;
 
 		return <InputSearch
 			id="connected-site-search"
@@ -153,7 +137,8 @@ export default function (context) {
 	});
 
 	// Development Helpers
-	remote.getCurrentWindow().openDevTools();
-	window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
+	// const remote = context.electron.remote;
+	// remote.getCurrentWindow().openDevTools();
+	// window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
 
 }

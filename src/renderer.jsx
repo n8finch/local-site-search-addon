@@ -1,4 +1,5 @@
 import Fuse from 'fuse.js';
+import { InputSearch } from '@getflywheel/local-components';
 
 export default function (context) {
 
@@ -61,6 +62,11 @@ export default function (context) {
 
 	hooks.addFilter('FlywheelConnectSites_availableSites', function (sites) {
 
+		// Set this as props the first time so we can have a prop to work with...
+		if (!this.props.availableSites) {
+			this.props.availableSites = sites;
+		}
+
 		if (this.state.availableSites) {
 			return this.state.availableSites;
 		}
@@ -69,33 +75,40 @@ export default function (context) {
 	});
 
 
-	hooks.addContent('FlywheelConnectSites_TabNav', function () {
+	hooks.addContent('FlywheelConnectSites_TabNav:Before', function () {
 		const onChange = (event) => {
 			const siteSearch = event.target.value;
 			let availableSites = null;
 
 			if (siteSearch) {
-				const fuse = new Fuse(Object.values(this.state.availableSites), {
+				const fuse = new Fuse(Object.values(this.props.availableSites), {
 					keys: ['name'],
 				});
 
 				availableSites = fuse.search(siteSearch);
 			}
 
-			console.log(siteSearch);
-
-
 			this.setState({
 				siteSearch,
 				availableSites,
 			});
+
+
 		};
 
-		return <input
+		// return <input
+		// 	key="search"
+		// 	placeholder="Search for a site"
+		// 	value={this.state.siteSearch || ''}
+		// 	onChange={onChange}
+		// />;
+
+		return <InputSearch
+			id="connected-site-search"
 			key="search"
-			placeholder="Search for a site"
-			value={this.state.siteSearch || ''}
 			onChange={onChange}
+			placeholder="Search available sites"
+			value={this.state.siteSearch}
 		/>;
 	});
 

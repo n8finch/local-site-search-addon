@@ -6,6 +6,10 @@ export default function (context) {
 	const hooks = context.hooks;
 	const React = context.React;
 
+	/**********************************************************
+	 * Main Local Sidebar Search
+	 */
+
 	hooks.addFilter('SitesSidebar_sites', function (sites) {
 		if (this.state.filteredSites) {
 			return this.state.filteredSites;
@@ -51,7 +55,7 @@ export default function (context) {
 
 
 	/**********************************************************
-	 * THE New STUFF
+	 * Connect to Flywheel Search
 	 */
 
 	hooks.addFilter('FlywheelConnectSites_availableSites', function (sites) {
@@ -136,7 +140,9 @@ export default function (context) {
 		return <p key="no-results">No sites found.</p>;
 	});
 
-	// Development Helpers
+	/**********************************************************
+	 * Development Helpers
+	 */
 	// const remote = context.electron.remote;
 	// remote.getCurrentWindow().openDevTools();
 	// window.reload = remote.getCurrentWebContents().reloadIgnoringCache;

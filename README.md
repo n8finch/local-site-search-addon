@@ -11,7 +11,7 @@ Adds a live fuzzy search to Local and Connect to Flywheel sites.
 
 ### Feedback, Comments, Contributions
 
-All feedback, comments, and contributions are welcome, please do so via the Issues tab here.
+All feedback, comments, and contributions are welcome, please do so via the Issues tab [here](https://github.com/n8finch/local-site-search-addon/issues).
 
 ### Filters:
 

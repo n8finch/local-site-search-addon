@@ -5,6 +5,7 @@ export default function (context) {
 
 	const hooks = context.hooks;
 	const React = context.React;
+	const localSearchSites = {};
 
 	/**********************************************************
 	 * Main Local Sidebar Search
@@ -60,9 +61,9 @@ export default function (context) {
 
 	hooks.addFilter('FlywheelConnectSites_availableSites', function (sites) {
 
-		// Set this as props the first time so we can have a prop to work with...
-		if (!this.props.availableSites) {
-			this.props.availableSites = sites;
+		// Set this as "props" the first time so we can have a "prop" to work with...
+		if (!localSearchSites.availableSites) {
+			localSearchSites.availableSites = sites;
 		}
 
 		if (this.state.availableSites) {
@@ -74,9 +75,9 @@ export default function (context) {
 
 	hooks.addFilter('FlywheelConnectSites_connectedSites', function (sites) {
 
-		// Set this as props the first time so we can have a prop to work with...
-		if (!this.props.connectedSites) {
-			this.props.connectedSites = sites;
+		// Set this as "props" the first time so we can have a "prop" to work with...
+		if (!localSearchSites.connectedSites) {
+			localSearchSites.connectedSites = sites;
 		}
 
 		if (this.state.connectedSites) {
@@ -95,8 +96,8 @@ export default function (context) {
 
 			if (siteSearch) {
 
-				if (this.props.availableSites) {
-					const fuseAvailableSites = new Fuse(Object.values(this.props.availableSites), {
+				if (localSearchSites.availableSites) {
+					const fuseAvailableSites = new Fuse(Object.values(localSearchSites.availableSites), {
 						keys: ['name'],
 					});
 					availableSites = fuseAvailableSites.search(siteSearch);
@@ -107,12 +108,30 @@ export default function (context) {
 					});
 				}
 
-				if (this.props.connectedSites) {
-					const fuseConnectedSites = new Fuse(Object.values(this.props.connectedSites), {
+				if (localSearchSites.connectedSites) {
+					const fuseConnectedSites = new Fuse(Object.values(localSearchSites.connectedSites), {
 						keys: ['name'],
 					});
 					connectedSites = fuseConnectedSites.search(siteSearch);
 
+					this.setState({
+						siteSearch,
+						connectedSites,
+					});
+				}
+			} else {
+				// This means that there's nothing in the search box, so we should reset the sites to thier original state
+				if (localSearchSites.availableSites) {
+					availableSites = localSearchSites.availableSites;
+
+					this.setState({
+						siteSearch,
+						availableSites,
+					});
+				}
+
+				if (localSearchSites.connectedSites) {
+					connectedSites = localSearchSites.connectedSites;
 					this.setState({
 						siteSearch,
 						connectedSites,
@@ -143,8 +162,8 @@ export default function (context) {
 	/**********************************************************
 	 * Development Helpers
 	 */
-	// const remote = context.electron.remote;
-	// remote.getCurrentWindow().openDevTools();
-	// window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
+	const remote = context.electron.remote;
+	remote.getCurrentWindow().openDevTools();
+	window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
 
 }

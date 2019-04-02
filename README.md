@@ -2,6 +2,8 @@
 
 Adds a live fuzzy search to Local and Connect to Flywheel sites.
 
+![Search in action](https://github.com/n8finch/local-site-search-addon/blob/master/screenshot.gif)
+
 ## To Install (via repo):
 
 1. Clone and extract this repo into `~/Library/Application Support/Local by Flywheel/addons`

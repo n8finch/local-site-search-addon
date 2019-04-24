@@ -11,6 +11,21 @@ Adds a live fuzzy search to Local and Connect to Flywheel sites.
 3. Restart Local
 4. Enable the add-on in the Add-ons section (this will probably prompt you to restart Local).
 
+## Development Helpers
+
+At the end of the `src/renderer.jsx` file, there is a commented out section of code that looks like this:
+
+~~~js
+/**********************************************************
+* Development Helpers
+*/
+const remote = context.electron.remote;
+remote.getCurrentWindow().openDevTools();
+window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
+~~~
+
+This code is helpful for testing new code. It opens the JS Console in the Local app, and allows you to reload the app by running the `reload()` function in the console. Uncomment it to use it! This code was borrow from [this Delicious Brains article](https://deliciousbrains.com/creating-custom-addon-local-flywheel/).
+
 ### Feedback, Comments, Contributions
 
 All feedback, comments, and contributions are welcome, please do so via the Issues tab [here](https://github.com/n8finch/local-site-search-addon/issues). I've made a couple of templates for Bugs and Feature requests. Please use the templates so I can be sure to get as much information as possible 🤓.

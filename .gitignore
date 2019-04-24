@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+dogit.sh
 
 # Runtime data
 pids

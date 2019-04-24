@@ -48,9 +48,9 @@ All feedback, comments, and contributions are welcome, please do so via the Issu
 - SitesSidebar_SitesSidebarSites
 
 ### Resources
-[Local Example](https://build.localbyflywheel.com/project/building/example-add-ons)
-[Build Local](https://build.localbyflywheel.com/project/)
-[Local Components](https://github.com/getflywheel/local-components)
-[React Docs](https://reactjs.org/docs/components-and-props.html)
-[Passing Props](https://www.robinwieruch.de/react-pass-props-to-component/)
+- [Local Example](https://build.localbyflywheel.com/project/building/example-add-ons)
+- [Build Local](https://build.localbyflywheel.com/project/)
+- [Local Components](https://github.com/getflywheel/local-components)
+- [React Docs](https://reactjs.org/docs/components-and-props.html)
+- [Passing Props](https://www.robinwieruch.de/react-pass-props-to-component/)
 

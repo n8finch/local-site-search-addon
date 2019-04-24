@@ -13,7 +13,7 @@ Adds a live fuzzy search to Local and Connect to Flywheel sites.
 
 ### Feedback, Comments, Contributions
 
-All feedback, comments, and contributions are welcome, please do so via the Issues tab [here](https://github.com/n8finch/local-site-search-addon/issues).
+All feedback, comments, and contributions are welcome, please do so via the Issues tab [here](https://github.com/n8finch/local-site-search-addon/issues). I've made a couple of templates for Bugs and Feature requests. Please use the templates so I can be sure to get as much information as possible 🤓.
 
 ### Filters:
 
@@ -33,8 +33,9 @@ All feedback, comments, and contributions are welcome, please do so via the Issu
 - SitesSidebar_SitesSidebarSites
 
 ### Resources
-https://build.localbyflywheel.com/project/building/example-add-ons
-https://github.com/getflywheel/local-components
-https://reactjs.org/docs/components-and-props.html
-https://www.robinwieruch.de/react-pass-props-to-component/
+[Local Example](https://build.localbyflywheel.com/project/building/example-add-ons)
+[Build Local](https://build.localbyflywheel.com/project/)
+[Local Components](https://github.com/getflywheel/local-components)
+[React Docs](https://reactjs.org/docs/components-and-props.html)
+[Passing Props](https://www.robinwieruch.de/react-pass-props-to-component/)
 

@@ -88,7 +88,7 @@ export default function (context) {
 	});
 
 
-	hooks.addContent('FlywheelConnectSites_TabNav:Before', function () {
+	hooks.addContent('FlywheelConnectSites_TabNav', function () {
 		const onChange = (event) => {
 			const siteSearch = event.target.value;
 			let availableSites = null;

@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"description": "Adds a live fuzzy search to Local and Connect to Flywheel sites.",
 	"renderer": "lib/renderer.js",
-	"author": "The Digital Ring <dev@thedigitalring.com>",
+	"author": "Nate Finch <nate@thedigitalring.com>",
 	"license": "MIT",
 	"scripts": {
 		"build": "babel src -d lib",

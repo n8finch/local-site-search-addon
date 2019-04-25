@@ -1,5 +1,6 @@
 import Fuse from 'fuse.js';
 import { InputSearch } from '@getflywheel/local-components';
+import { Header } from '@getflywheel/local-components';
 import path from 'path';
 
 export default function (context) {
@@ -169,11 +170,12 @@ export default function (context) {
 		}
 		// Add the search team to the top of the sites list.
 		if (this.state.siteSearch !== undefined && this.state.siteSearch.length > 0 && this.state.availableSites.length !== 0) {
-			return <p key="site-results">Searching for &quot;{this.state.siteSearch}&quot;...</p>;
+			return <Header key="site-results" tag="h2" fontSize="m" fontWeight="500">Searching for &quot;{this.state.siteSearch}&quot;...</Header>
 		}
 
 		// If nothing is coming back, then output no results found.
-		return <p key="no-results">No sites found.</p>;
+		// return <p key="no-results">No sites found.</p>;
+		return <Header className="filterResults" key="no-results" tag="h2" fontSize="m" fontWeight="500">No sites found.</Header>
 	});
 
 	/**********************************************************

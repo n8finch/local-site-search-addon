@@ -1,11 +1,17 @@
 import Fuse from 'fuse.js';
 import { InputSearch } from '@getflywheel/local-components';
+import path from 'path';
 
 export default function (context) {
 
 	const hooks = context.hooks;
 	const React = context.React;
 	const localSearchSites = {};
+
+	hooks.addContent('stylesheets', () => {
+    	const stylesheetPath = path.resolve(__dirname, '../style.css');
+    	return <link rel="stylesheet" key="stylesheet" href={stylesheetPath}/>
+	});
 
 	/**********************************************************
 	 * Main Local Sidebar Search
@@ -145,7 +151,9 @@ export default function (context) {
 			id="connected-site-search"
 			key="search"
 			onChange={onChange}
+			placeholder="Search available sites..."
 			value={this.state.siteSearch}
+			className="rightTab"
 		/>;
 	});
 

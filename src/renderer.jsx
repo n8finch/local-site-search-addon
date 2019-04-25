@@ -170,7 +170,7 @@ export default function (context) {
 		}
 		// Add the search team to the top of the sites list.
 		if (this.state.siteSearch !== undefined && this.state.siteSearch.length > 0 && this.state.availableSites.length !== 0) {
-			return <Header key="site-results" tag="h2" fontSize="m" fontWeight="500">Searching for &quot;{this.state.siteSearch}&quot;...</Header>
+			return <Header key="site-results" className="searchingfor" tag="h2" fontSize="m" fontWeight="500">Searching for &quot;{this.state.siteSearch}&quot;...</Header>
 		}
 
 		// If nothing is coming back, then output no results found.

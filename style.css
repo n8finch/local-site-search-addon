@@ -11,3 +11,7 @@
 .Header_OJ-xO_v6-1-9.Header__FontSizeM_3XdWA_v6-1-9.Header__FontWeight500_PZS44_v6-1-9 {
 	padding-bottom:20px;
 }
+
+.no-results + .EmptyArea {
+	display:none !important;
+}

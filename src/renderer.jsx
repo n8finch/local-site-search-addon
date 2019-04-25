@@ -175,7 +175,7 @@ export default function (context) {
 
 		// If nothing is coming back, then output no results found.
 		// return <p key="no-results">No sites found.</p>;
-		return <Header className="filterResults" key="no-results" tag="h2" fontSize="m" fontWeight="500">No sites found.</Header>
+		return <Header className="filterResults no-results" key="no-results" tag="h2" fontSize="m" fontWeight="500">No sites found.</Header>
 	});
 
 	/**********************************************************

@@ -159,10 +159,20 @@ export default function (context) {
 
 
 	hooks.addContent('FlywheelConnectSites_FlywheelSitesList:Before', function () {
-		if (!this.state.siteSearch || (this.state.siteSearch && this.state.availableSites.length)) {
+
+		// console.log(this.state.siteSearch !== undefined);
+		// console.log(this.state.siteSearch.length < 1);
+
+		// Return nothing if there's nothing being searched for.
+		if (this.state.siteSearch === undefined || this.state.siteSearch.length < 1) {
 			return;
 		}
+		// Add the search team to the top of the sites list.
+		if (this.state.siteSearch !== undefined && this.state.siteSearch.length > 0 && this.state.availableSites.length !== 0) {
+			return <p key="site-results">Searching for &quot;{this.state.siteSearch}&quot;...</p>;
+		}
 
+		// If nothing is coming back, then output no results found.
 		return <p key="no-results">No sites found.</p>;
 	});
 

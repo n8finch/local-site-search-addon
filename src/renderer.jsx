@@ -141,13 +141,22 @@ export default function (context) {
 
 		};
 
-		return <InputSearch
-			id="connected-site-search"
-			key="search"
-			onChange={onChange}
-			placeholder="Search available sites"
-			value={this.state.siteSearch}
-		/>;
+		return (
+			<div id="site-search-input-container"
+				style={{
+					position: 'absolute', right: '20px',
+					'padding-top': '5px',
+				}}>
+				<InputSearch
+					id="connected-site-search"
+					key="search"
+					onChange={onChange}
+					placeholder="Search available sites"
+					value={this.state.siteSearch}
+				/>
+			</div>
+		);
+
 	});
 
 

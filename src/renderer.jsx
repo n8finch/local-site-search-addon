@@ -145,7 +145,6 @@ export default function (context) {
 			id="connected-site-search"
 			key="search"
 			onChange={onChange}
-			placeholder="Search available sites"
 			value={this.state.siteSearch}
 		/>;
 	});
@@ -162,8 +161,8 @@ export default function (context) {
 	/**********************************************************
 	 * Development Helpers
 	 */
-	// const remote = context.electron.remote;
-	// remote.getCurrentWindow().openDevTools();
-	// window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
+	const remote = context.electron.remote;
+	remote.getCurrentWindow().openDevTools();
+	window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
 
 }

@@ -181,8 +181,8 @@ export default function (context) {
 	/**********************************************************
 	 * Development Helpers
 	 */
-	const remote = context.electron.remote;
-	remote.getCurrentWindow().openDevTools();
-	window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
+	// const remote = context.electron.remote;
+	// remote.getCurrentWindow().openDevTools();
+	// window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
 
 }

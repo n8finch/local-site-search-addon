@@ -10,8 +10,8 @@ export default function (context) {
 	const localSearchSites = {};
 
 	hooks.addContent('stylesheets', () => {
-    	const stylesheetPath = path.resolve(__dirname, '../style.css');
-    	return <link rel="stylesheet" key="stylesheet" href={stylesheetPath}/>
+		const stylesheetPath = path.resolve(__dirname, '../style.css');
+		return <link rel="stylesheet" key="stylesheet" href={stylesheetPath} />;
 	});
 
 	/**********************************************************
@@ -170,19 +170,19 @@ export default function (context) {
 		}
 		// Add the search team to the top of the sites list.
 		if (this.state.siteSearch !== undefined && this.state.siteSearch.length > 0 && this.state.availableSites.length !== 0) {
-			return <Header key="site-results" className="searchingfor" tag="h2" fontSize="m" fontWeight="500">Searching for &quot;{this.state.siteSearch}&quot;...</Header>
+			return <Header key="site-results" className="searchingfor" tag="h2" fontSize="m" fontWeight="500">Searching for &quot;{this.state.siteSearch}&quot;...</Header>;
 		}
 
 		// If nothing is coming back, then output no results found.
 		// return <p key="no-results">No sites found.</p>;
-		return <Header className="filterResults no-results" key="no-results" tag="h2" fontSize="m" fontWeight="500">No sites found.</Header>
+		return <Header className="filterResults no-results" key="no-results" tag="h2" fontSize="m" fontWeight="500">No sites found.</Header>;
 	});
 
 	/**********************************************************
 	 * Development Helpers
 	 */
-	const remote = context.electron.remote;
-	remote.getCurrentWindow().openDevTools();
-	window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
+	// const remote = context.electron.remote;
+	// remote.getCurrentWindow().openDevTools();
+	// window.reload = remote.getCurrentWebContents().reloadIgnoringCache;
 
 }

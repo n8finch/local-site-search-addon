@@ -39,3 +39,4 @@ jspm_packages
 
 #compiled js
 lib/*
+.DS_Store

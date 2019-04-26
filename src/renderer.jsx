@@ -1,11 +1,18 @@
 import Fuse from 'fuse.js';
 import { InputSearch } from '@getflywheel/local-components';
+import { Header } from '@getflywheel/local-components';
+import path from 'path';
 
 export default function (context) {
 
 	const hooks = context.hooks;
 	const React = context.React;
 	const localSearchSites = {};
+
+	hooks.addContent('stylesheets', () => {
+		const stylesheetPath = path.resolve(__dirname, '../style.css');
+		return <link rel="stylesheet" key="stylesheet" href={stylesheetPath} />;
+	});
 
 	/**********************************************************
 	 * Main Local Sidebar Search
@@ -141,22 +148,14 @@ export default function (context) {
 
 		};
 
-		return (
-			<div id="site-search-input-container"
-				style={{
-					position: 'absolute', right: '20px',
-					'padding-top': '5px',
-				}}>
-				<InputSearch
-					id="connected-site-search"
-					key="search"
-					onChange={onChange}
-					placeholder="Search available sites"
-					value={this.state.siteSearch}
-				/>
-			</div>
-		);
-
+		return <InputSearch
+			id="connected-site-search"
+			key="search"
+			onChange={onChange}
+			placeholder="Search available sites..."
+			value={this.state.siteSearch}
+			className="rightTab"
+		/>;
 	});
 
 
@@ -171,11 +170,12 @@ export default function (context) {
 		}
 		// Add the search team to the top of the sites list.
 		if (this.state.siteSearch !== undefined && this.state.siteSearch.length > 0 && this.state.availableSites.length !== 0) {
-			return <p key="site-results">Searching for &quot;{this.state.siteSearch}&quot;...</p>;
+			return <Header key="site-results" className="searchingfor" tag="h2" fontSize="m" fontWeight="500">Searching for &quot;{this.state.siteSearch}&quot;...</Header>;
 		}
 
 		// If nothing is coming back, then output no results found.
-		return <p key="no-results">No sites found.</p>;
+		// return <p key="no-results">No sites found.</p>;
+		return <Header className="filterResults no-results" key="no-results" tag="h2" fontSize="m" fontWeight="500">No sites found.</Header>;
 	});
 
 	/**********************************************************

@@ -1,0 +1,17 @@
+.TabNav_Items_3Zncp_v8-1-6 {
+	width: 100%;
+    display: flex;
+	align-items: start;
+}
+.TabNav_2w9e0_v8-1-6 .TabNav_Items_3Zncp_v8-1-6 .InputSearch_Container_pz5Oj_v6-1-9 {
+	display:flex;
+	margin-left:auto;
+	padding:4px 10px 6px 14px;
+}
+.searchingfor {
+	padding-bottom:20px;
+}
+
+.no-results + .EmptyArea {
+	display:none !important;
+}

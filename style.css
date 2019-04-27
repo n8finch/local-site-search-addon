@@ -1,3 +1,4 @@
+/*connect tab sites*/
 .TabNav_Items_3Zncp_v8-1-6 {
 	width: 100%;
     display: flex;
@@ -14,4 +15,11 @@
 
 .no-results + .EmptyArea {
 	display:none !important;
+}
+/*sites sidebar*/
+.SitesSidebarSites .InputSearch_Container_pz5Oj_v6-1-9 {
+	border-top: solid 0.5px #e7e7e7;
+    border-bottom: solid 0.5px #e7e7e7;
+    margin: 0 -30px;
+    padding: 5px 30px;
 }

@@ -6,6 +6,12 @@
 	"renderer": "lib/renderer.js",
 	"author": "Nate Finch <nate@thedigitalring.com>",
 	"license": "MIT",
+	"keywords": [
+		"local-addon-search",
+		"search"
+	],
+	"bgColor": "#51bb7b",
+	"icon": "icon.svg",
 	"scripts": {
 		"build": "babel src -d lib",
 		"prepare": "npm run build"

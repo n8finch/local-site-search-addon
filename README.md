@@ -2,7 +2,7 @@
 
 Adds a live fuzzy search to Local and Connect to Flywheel sites.
 
-##Notes and Troubleshooting
+## Notes and Troubleshooting
 
 - Currently this plugin only works on version 3.2 of Local for Teams, as the hooks and filters necessary are only in that version of Local. I'm sure the action and filter hooks will be available in the standard version soon!
 - If the Connected Sites search doesn't work at first, try toggling the add-on Off and back On, or restarting you Local instance.

@@ -2,6 +2,8 @@
 
 Adds a live fuzzy search to Local and Connect to Flywheel sites.
 
+**NOTE**: Currently only works on version 3.2 of Local for Teams, as the hooks and filters necessary are only in that version of Local.
+
 ![Search in action](https://github.com/n8finch/local-site-search-addon/blob/master/screenshot.gif)
 
 ## To Install (via repo):
